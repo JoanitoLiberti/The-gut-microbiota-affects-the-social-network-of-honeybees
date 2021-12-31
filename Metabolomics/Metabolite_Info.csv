@@ -1,0 +1,139 @@
+Retention Time (Min),Tissue,Top Library Match,Metabolite,Class
+2.62,Brain,"Lactic Acid, 2TMS derivative ",Lactic Acid,Carboxylic Acid
+2.97,Brain,"L-Alanine, 2TMS derivative ",Alanine,Non-Essential Amino Acid
+3.31,Brain,"Sarcosine, 2TMS derivative ",Sarcosine,Amino Acid Metabolism
+4.22,Brain,"L-Valine, 2TMS derivative ",Valine,Essential Amino Acid
+4.6,Brain,"Urea, 2TMS derivative ",Urea,Amino Acid Metabolism
+5.03,Brain,"Glycerol, 3TMS derivative ",Glycerol,Other
+5.06,Brain,"Silanol, trimethyl-, phosphate (3:1) ",Phosphate,Other
+5.49,Brain,"L-Isoleucine, 2TMS derivative ",Isoleucine,Essential Amino Acid
+5.68,Brain,"L-Proline, 2TMS derivative ",Proline,Non-Essential Amino Acid
+5.79,Brain,"Glycine, 3TMS derivative ",Glycine,Non-Essential Amino Acid
+5.94,Brain,"Butanedioic acid, 2TMS derivative ",Succinic Acid,Carboxylic Acid
+6,Brain,"L-Norleucine, 2TMS derivative ",Norleucine,#N/A
+6.46,Brain,"Uracil, 2TMS derivative ",Uracil,Nucleobase Metabolism
+6.69,Brain,"Methylmaleic acid, 2TMS derivative ",Methylmaleic Acid,Carboxylic Acid
+6.72,Brain,"2-Butenedioic acid, (E)-, 2TMS derivative ",Fumaric Acid,Carboxylic Acid
+6.82,Brain,"Serine, 3TMS derivative ",Serine,Non-Essential Amino Acid
+6.92,Brain,Unknown_6_94 ,Unknown_6_94 ,Other
+7.11,Brain,"Pipecolic acid, 2TMS derivative ",Pipecolic Acid,Amino Acid Metabolism
+7.41,Brain,"L-Threonine, 3TMS derivative ",Threonine,Essential Amino Acid
+8.59,Brain,".beta.-Alanine, 3TMS derivative ",B-Alanine,Non-Essential Amino Acid
+9.45,Brain,"3-Amino-2-piperidone, 2TMS derivative ",3-Amino-2-piperidone,Amino Acid Metabolism
+10.08,Brain,"Timonacic, 2TMS derivative ",Timonacic Acid,Amino Acid Metabolism
+10.24,Brain,"Malic acid, 3TMS derivative ",Malic Acid,Carboxylic Acid
+10.46,Brain,"Erythritol, 4TMS derivative ",Erythritol,Carbohydrate
+10.69,Brain,"Threitol, 4TMS derivative ",Threitol,Carbohydrate
+11.16,Brain,"L-Aspartic acid, 3TMS derivative ",Aspartic Acid,Non-Essential Amino Acid
+11.3,Brain,"L-5-Oxoproline, , 2TMS derivative ",5-Oxoproline,Non-Essential Amino Acid
+11.45,Brain,"4-Aminobutanoic acid, 3TMS derivative ",4-Aminobutanoic Acid,Non-Essential Amino Acid
+11.73,Brain,Unknown_11_73 ,Unknown_11_73 ,Other
+11.78,Brain,"2,4-Di-tert-butylphenoxytrimethylsilane ","2,4-Di-tert-butylphenoxy",Other
+11.97,Brain,"Hydroxyproline, 3TMS derivative ",Hydroxyproline,Non-Essential Amino Acid
+12.16,Brain,"Cysteine, 3TMS derivative ",Cysteine,Non-Essential Amino Acid
+13.77,Brain,"L-Ornithine, 3TMS derivative ",Ornithine_1,Non-Essential Amino Acid
+13.93,Brain,"L-Glutamic acid, 3TMS derivative ",Glutamic Acid,Non-Essential Amino Acid
+14.1,Brain,"L-Phenylalanine, 2TMS derivative ",Phenylalanine,Essential Amino Acid
+15.08,Brain,"Taurine, 3TMS derivative ",Taurine,Essential Amino Acid
+15.09,Brain,"2,8-Dihydroxyquinoline, bis(trimethylsilyl) ether ","2,8-Dihydroxyquinoline",Other
+15.21,Brain,"Asparagine, 3TMS derivative ",Asparagine,Non-Essential Amino Acid
+16.63,Brain,Unknown 16.6246 ,Unknown_16_62,Other
+16.71,Brain,"Putrescine, 4TMS derivative ",Putrescine,Amino Acid Metabolism
+17.33,Brain,"N-Acetyl-L-glutamic acid, 3TMS derivative ",Acetylglutamic Acid,Amino Acid Metabolism
+17.36,Brain,"Phosphoric acid, bis(trimethylsilyl) 2,3-bis[(trimethylsilyl)oxy]propyl ester ",Glycerol-3-phosphate_1,Carbohydrate
+17.69,Brain,"L-Glutamine, 3TMS derivative ",Glutamine,Non-Essential Amino Acid
+17.81,Brain,"Phosphorylethanolamine, 4TMS derivative ",Phosphorylethanolamine,Other
+18.57,Brain,"L-Ornithine, 4TMS derivative ",Ornithine_2,Non-Essential Amino Acid
+18.65,Brain,"Citric acid, 4TMS derivative ",Citric Acid,Carboxylic Acid
+19.68,Brain,"D-Fructose, 1,3,4,5,6-pentakis-O-(trimethylsilyl)-, O-methyloxime_1 ",Fructose,Carbohydrate
+20.21,Brain,"d-Glucose, 2,3,4,5,6-pentakis-O-(trimethylsilyl)-, o-methyloxyme, (1E)-_1 ",Glucose,Carbohydrate
+20.6,Brain,"d-Glucose, 2,3,4,5,6-pentakis-O-(trimethylsilyl)-, o-methyloxyme, (1E)-_2 ",Sorbitol,Carbohydrate
+20.83,Brain,"D-Sorbitol, 6TMS derivative ",Glucitol,Carbohydrate
+21.23,Brain,"L-Tyrosine, 3TMS derivative ",Tyrosine,Essential Amino Acid
+21.37,Brain,"1,2,3,4,5,6-Hexa-O-trimethelsilyl-myo-inositol_1 ",Myo-Inositol_1,Carbohydrate
+22.25,Brain,"D-Gluconic acid, 6TMS derivative ",Gluconic Acid,Carbohydrate
+22.95,Brain,"D-(+)-Galactose oxime (isomer 2), 6TMS derivative ",Galactose,Carbohydrate
+24.01,Brain,"1,2,3,4,5,6-Hexa-O-trimethelsilyl-myo-inositol ",Myo-Inositol_2,Carbohydrate
+26.63,Brain,"Phosphoric acid, bis(trimethylsilyl) 2,3-bis[(trimethylsilyl)oxy]propyl ester_2 ",Glycerol-3-phosphate_2,Carbohydrate
+27.22,Brain,"Adenosine, N-(trimethylsilyl)-2',3'-bis-O-(trimethylsilyl)-, 5'-[bis(trimethylsilyl) phosphate] ",Adenosine,Nucleobase Metabolism
+27.4,Brain,"D-Mannose, 2,3,4,5-tetrakis-O-(trimethylsilyl)-, O-methyloxime, 6-[bis(trimethylsilyl) phosphate] ",Glucose-6-phosphate,Carbohydrate
+29.6,Brain,"Inosine, 4TMS derivative ",Inosine,Nucleobase Metabolism
+29.89,Brain,"Sucrose, 8TMS derivative ",Sucrose,Carbohydrate
+30.53,Brain,"Lactose, 8TMS derivative ",Lactose,Carbohydrate
+2.28,Hemolymph,"Propylene glycol, 2TMS derivative Results",Propylene glycol,#N/A
+2.45,Hemolymph,"2,3-Butanediol, 2TMS derivative Results","2,3-Butanediol",#N/A
+2.62,Hemolymph,"Lactic Acid, 2TMS derivative Results",Lactic Acid,#N/A
+2.73,Hemolymph,"2-Pyrrolidinone, 1-methyl- Results","2-Pyrrolidinone, 1-methy",#N/A
+2.97,Hemolymph,"L-Alanine, 2TMS derivative Results",Alanine,#N/A
+3.11,Hemolymph,"2,5-Pyrrolidinedione, 1-methyl- Results",Methylsuccinimide,#N/A
+3.31,Hemolymph,"Sarcosine, 2TMS derivative Results",Sarcosine,#N/A
+3.52,Hemolymph,"3-Pyridinol, TMS derivative Results",3-Pyridinol,#N/A
+4.23,Hemolymph,"L-Valine, 2TMS derivative Results",Valine,#N/A
+4.57,Hemolymph,Unknown 4.5703 Results,Unknown 4.5703 ,#N/A
+4.6,Hemolymph,"Urea, 2TMS derivative Results",Urea,#N/A
+5.03,Hemolymph,"Glycerol, 3TMS derivative Results",Glycerol,#N/A
+5.06,Hemolymph,"Silanol, trimethyl-, phosphate (3:1) Results",Phosphate,#N/A
+5.09,Hemolymph,"L-Leucine, 2TMS derivative Results",Leucine,#N/A
+5.5,Hemolymph,"L-Isoleucine, 2TMS derivative Results",Isoleucine,#N/A
+5.69,Hemolymph,"L-Proline, 2TMS derivative Results",Proline,#N/A
+5.79,Hemolymph,"Glycine, 3TMS derivative Results",Glycine,#N/A
+5.94,Hemolymph,"Butanedioic acid, 2TMS derivative Results",Succinic Acid,#N/A
+6,Hemolymph,"L-Norleucine, 2TMS derivative Results",Norleucine,#N/A
+6.49,Hemolymph,"Diethylene glycol, n-butyl ether, trimethylsilyl ether Results","Diethylene glycol, n-butyl ether",#N/A
+6.73,Hemolymph,"2-Butenedioic acid, (E)-, 2TMS derivative Results",Fumaric Acid,#N/A
+6.82,Hemolymph,"Serine, 3TMS derivative Results",Serine,#N/A
+6.93,Hemolymph,Unknown_6_94 Results,Unknown 6.94 ,#N/A
+7.1,Hemolymph,"Pipecolic acid, 2TMS derivative Results",Pipecolic Acid,#N/A
+7.3,Hemolymph,para-Isopropylbenzoic acid trimethylsilylester Results,para-Isopropylbenzoic Acid,#N/A
+7.42,Hemolymph,"L-Threonine, 3TMS derivative Results",Threonine,#N/A
+8.59,Hemolymph,".beta.-Alanine, 3TMS derivative Results",B-Alanine,#N/A
+9.41,Hemolymph,"3-Aminoisobutyric acid, 3TMS derivative Results",3-Aminoisobutyric Acid,#N/A
+10.07,Hemolymph,"Timonacic, 2TMS derivative Results",Timonacic Acid,#N/A
+10.22,Hemolymph,"Malic acid, 3TMS derivative Results",Malic Acid,#N/A
+10.44,Hemolymph,"D-Threitol, 4TMS derivative Results",Threitol,#N/A
+10.56,Hemolymph,"3,7-dioxa-2,8-disilanonane, 2,2,8,8-tetramethyl-5,5-bis[[(trimethylsilyl)oxy]methyl]- Results",Arabinofuranose,#N/A
+10.68,Hemolymph,"Erythritol, 4TMS derivative Results",Erythritol,#N/A
+10.78,Hemolymph,"Tromethamine, 4TMS derivative Results",Tromethamine,#N/A
+11.16,Hemolymph,"L-Aspartic acid, 3TMS derivative Results",Aspartic Acid,#N/A
+11.29,Hemolymph,"L-5-Oxoproline, , 2TMS derivative Results",5-Oxoproline,#N/A
+11.3,Hemolymph,"3-Hydroxyproline, 3TMS derivative Results",3-Hydroxyproline,#N/A
+11.44,Hemolymph,"4-Aminobutanoic acid, 3TMS derivative Results",4-Aminobutanoic Acid,#N/A
+12.82,Hemolymph,"Pentanedioic acid, 2-(methoxyimino)-, bis(trimethylsilyl) ester Results",2-Oxoglutaric Acid,#N/A
+13.77,Hemolymph,"L-Ornithine, 3TMS derivative Results",Ornithine,#N/A
+13.92,Hemolymph,"L-Glutamic acid, 3TMS derivative Results",Glutamic Acid,#N/A
+14.09,Hemolymph,"L-Phenylalanine, 2TMS derivative Results",Phenylalanine,#N/A
+15,Hemolymph,"Homocysteine, 3TMS derivative Results",Homocysteine,#N/A
+15.08,Hemolymph,"Taurine, 3TMS derivative Results",Taurine,#N/A
+15.09,Hemolymph,"2,8-Dihydroxyquinoline, bis(trimethylsilyl) ether Results","2,8-Dihydroxyquinoline",#N/A
+15.2,Hemolymph,"Asparagine, 3TMS derivative Results",Asparagine,#N/A
+16.37,Hemolymph,"Ribitol, 5TMS derivative Results",Ribitol,#N/A
+16.62,Hemolymph,Unknown 16.6246 Results,Unknown 16.6246 ,#N/A
+16.71,Hemolymph,"Putrescine, 4TMS derivative Results",Putrescine,#N/A
+17.14,Hemolymph,Unknown 17.1507 Results,Unknown 17.1507 ,#N/A
+17.35,Hemolymph,"Phosphoric acid, bis(trimethylsilyl) 2,3-bis[(trimethylsilyl)oxy]propyl ester_1 Results",Glycerol-3-phosphate,#N/A
+17.69,Hemolymph,"L-Glutamine, 3TMS derivative Results",Glutamine,#N/A
+17.81,Hemolymph,"Phosphorylethanolamine, 4TMS derivative Results",Phosphorylethanolamine,#N/A
+17.91,Hemolymph,"L-Methionine Sulfoxide, N,N-bis(triimethylsilyl)-, trimethylsilyl ester Results",Methionine,#N/A
+18.65,Hemolymph,"Citric acid, 4TMS derivative Results",Citric Acid,#N/A
+18.86,Hemolymph,"Galacto-Hexodialdose, 2,3,4,5-tetrakis-O-(trimethylsilyl)-, bis(O-methyloxime) Results",Galacto-Hexodialdose,#N/A
+18.96,Hemolymph,"Cadaverine, 4TMS derivative Results",Cadaverine,#N/A
+19.57,Hemolymph,Unknown 19.5708 Results,Unknown 19.5708 ,#N/A
+19.6,Hemolymph,"Adenine, 2TMS derivative Results",Adenine,#N/A
+19.69,Hemolymph,"D-Fructose, 1,3,4,5,6-pentakis-O-(trimethylsilyl)-, O-methyloxime_2 Results",Fructose,#N/A
+20.06,Hemolymph,"Gluconolactone (3R,4S,5R,6R)-, 4TMS derivative Results",Gluconolactone,#N/A
+20.21,Hemolymph,"d-Glucose, 2,3,4,5,6-pentakis-O-(trimethylsilyl)-, o-methyloxyme, (1Z)- Results",Glucose,#N/A
+20.75,Hemolymph,Unknown 20.7569 Results,Unknown 20.7569 ,#N/A
+20.83,Hemolymph,"D-Sorbitol, 6TMS derivative Results",Sorbitol,#N/A
+20.97,Hemolymph,"D-Glucitol, 6TMS derivative Results",Glucitol,#N/A
+21.21,Hemolymph,"L-Tyrosine, 3TMS derivative Results",Tyrosine,#N/A
+21.37,Hemolymph,"1,2,3,4,5,6-Hexa-O-trimethelsilyl-myo-inositol_1 Results",Myo-inositol_1 ,#N/A
+21.54,Hemolymph,"Maltose, octakis(trimethylsilyl) ether, methyloxime (isomer 2) Results",Maltose,#N/A
+22.02,Hemolymph,"D-Altrose, 5TMS derivative Results",Altrose,#N/A
+22.25,Hemolymph,"D-Gluconic acid, 6TMS derivative Results",Gluconic Acid,#N/A
+22.95,Hemolymph,"D-(+)-Galactose oxime (isomer 2), 6TMS derivative Results",Galactose oxime,#N/A
+24,Hemolymph,"1,2,3,4,5,6-Hexa-O-trimethelsilyl-myo-inositol_2 Results",Myo-inositol_2 ,#N/A
+24.38,Hemolymph,"9H-Purine, 9-(trimethylsilyl)-2,6,8-tris[(trimethylsilyl)oxy]- Results",Uric Acid,#N/A
+27.18,Hemolymph,"Adenosine, N-(trimethylsilyl)-2',3'-bis-O-(trimethylsilyl)-, 5'-[bis(trimethylsilyl) phosphate] Results",Adenosine,#N/A
+29.59,Hemolymph,"Inosine, 4TMS derivative Results",Inosine,#N/A
+29.88,Hemolymph,"Sucrose, 8TMS derivative Results",Sucrose,#N/A
+30.53,Hemolymph,"Lactose, 8TMS derivative Results",Lactose,#N/A
