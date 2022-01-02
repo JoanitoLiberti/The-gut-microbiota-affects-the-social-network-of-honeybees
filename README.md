@@ -9,3 +9,7 @@ In the present repository we provide all data, metadata and codes needed to repr
 Separate folders contain data, metadata and codes for each component of the study: automated behavioral tracking, RNA-sequencing, metabolomics and analyses of gut microbiota composition and abundance by amplicon-sequencing and qPCR.
 
 # Reference publication
+
+Liberti J, Kay T, Quinn A, Kesner L, Frank ET, Cabirol A, Richardson TO, Engel P, Keller L, 
+*The gut microbiota affects the social network of honeybees*, 
+bioRxiv 2021.12.31.474534; doi: https://doi.org/10.1101/2021.12.31.474534
