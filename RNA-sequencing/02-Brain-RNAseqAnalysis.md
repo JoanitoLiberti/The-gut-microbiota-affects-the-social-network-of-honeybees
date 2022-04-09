@@ -174,7 +174,7 @@ colnames(design)<-make.names(colnames(design))
 v=voom(y,design,plot=TRUE)
 ```
 
-![](Brain_RNAseqAnalysis_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![](02-Brain-RNAseqAnalysis_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
 ``` r
 cor=duplicateCorrelation(v,design,block=Design$Sample_ID)
@@ -249,7 +249,7 @@ biplot(p, lab = NULL,
     scale_color_manual(values = c("#00BFC4","#7CAE00","#F8766D","#C77CFF"))
 ```
 
-![](Brain_RNAseqAnalysis_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](02-Brain-RNAseqAnalysis_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
 ``` r
 # ggsave(file="~/Desktop/OverallBrainGeneExpression.pdf", width=8, height=6, useDingbats=FALSE)
@@ -1446,7 +1446,7 @@ library(ggpubr)
 ggarrange(pl1,pl2,pl3, nrow=1, common.legend = T)
 ```
 
-![](Brain_RNAseqAnalysis_files/figure-gfm/unnamed-chunk-43-1.png)<!-- -->
+![](02-Brain-RNAseqAnalysis_files/figure-gfm/unnamed-chunk-43-1.png)<!-- -->
 
 ``` r
 # ggsave(file="~/Desktop/PCA-RegionSpecific-DEGs.pdf", width=10, height=5, useDingbats=FALSE)
@@ -1461,10 +1461,12 @@ gutDEGs <- gutDEGs$V1
 # Make a list containing all DEG comparison lists
 DEGs_gut_brain <- list(gutDEGs, AllDEGs)
 DEGs_Treat_BrainRegions <- list(All_AL_DEGs, All_MB_DEGs, All_OL_DEGs)
+DEGs_3wayComparisons <- list(All_MDvsCL, All_MDvsCL_13, All_MDvsCL_Bifi) 
 
 # We can rename our list vectors
 names(DEGs_gut_brain) <- c("Gut", "Brain")
 names(DEGs_Treat_BrainRegions) <- c("AL", "MB", "OL")
+names(DEGs_3wayComparisons) <- c("MD vs CL", "MD vs CL_13", "MD vs CL_Bifi")
 
 # Now we can plot a Venn diagram with the VennDiagram R package, as follows:
 require("VennDiagram")
@@ -1475,6 +1477,9 @@ venn.plot1 <- venn.diagram(DEGs_gut_brain, NULL, euler.d = F, scaled = F, fill=c
 overrideTriple=T
 venn.plot2 <- venn.diagram(DEGs_Treat_BrainRegions, NULL, euler.d = F, scaled = F, fill=c("darkmagenta", "darkblue", "green"), alpha=c(0.5,0.5,0.5), cex = 1.6, cat.fontface=4, category.names=c("AL", "MB", "OL"), main="Differentially expressed genes in brain by gut microbiota")
 
+overrideTriple=T
+venn.plot3 <- venn.diagram(DEGs_3wayComparisons, NULL, euler.d = F, scaled = F, fill=c("darkmagenta", "darkblue", "green"), alpha=c(0.5,0.5,0.5), cex = 1.6, cat.fontface=4, category.names=c("MD vs CL", "MD vs CL_13", "MD vs CL_Bifi"), main="Differentially expressed genes in the brain")
+
 
 grid.newpage()
 # dev.new()
@@ -1482,7 +1487,7 @@ grid.newpage()
 p1 <- grid.draw(venn.plot1)
 ```
 
-![](Brain_RNAseqAnalysis_files/figure-gfm/unnamed-chunk-44-1.png)<!-- -->
+![](02-Brain-RNAseqAnalysis_files/figure-gfm/unnamed-chunk-44-1.png)<!-- -->
 
 ``` r
 # dev.off()
@@ -1493,7 +1498,18 @@ grid.newpage()
 p2 <- grid.draw(venn.plot2)
 ```
 
-![](Brain_RNAseqAnalysis_files/figure-gfm/unnamed-chunk-44-2.png)<!-- -->
+![](02-Brain-RNAseqAnalysis_files/figure-gfm/unnamed-chunk-44-2.png)<!-- -->
+
+``` r
+# dev.off()
+
+grid.newpage()
+# dev.new()
+# pdf("~/Desktop/Venn_GutMicrobiota_Brain_3wayComparison.pdf",height=4,width=6)  
+p3 <- grid.draw(venn.plot3)
+```
+
+![](02-Brain-RNAseqAnalysis_files/figure-gfm/unnamed-chunk-44-3.png)<!-- -->
 
 ``` r
 # dev.off()
@@ -1505,7 +1521,7 @@ p2 <- grid.draw(venn.plot2)
 # write.table(AllDEGs, "~/Desktop/AllBrainDEGs.txt", sep="\t")
 ```
 
-## **We find 45 genes overlapping between gut and brain DEGs. We test if this is more than expected by chance**
+## **We find 45 genes overlapping between gut and brain DEGs. We test if this is more than expected by chance, using the full transcriptome as background**
 
 ``` r
 Hyptest = phyper(44, 4988, 12374 - 4988, 91, lower.tail = FALSE)
@@ -1520,6 +1536,38 @@ RepresentationFactor
 ```
 
     ## [1] 1.226746
+
+## **We test for overlap between the treatment comparisons in the brain, using the 10,493 genes retained in the differential gene expression analysis as background**
+
+``` r
+# Overlap between MD vs CL and MD vs CL_13
+Hyptest = phyper(6, 25, 10493 - 25, 37, lower.tail = FALSE)
+Hyptest
+```
+
+    ## [1] 1.705773e-12
+
+``` r
+RepresentationFactor = 7/((25*37)/10493)
+RepresentationFactor
+```
+
+    ## [1] 79.40649
+
+``` r
+# Overlap between MD vs CL and MD vs CL_Bifi
+Hyptest = phyper(9, 23, 10493 - 23, 37, lower.tail = FALSE)
+Hyptest
+```
+
+    ## [1] 8.706251e-20
+
+``` r
+RepresentationFactor = 10/((23*37)/10493)
+RepresentationFactor
+```
+
+    ## [1] 123.302
 
 ## **GO enrichment test with GOstats on all treatment DEGs**
 
@@ -1685,23 +1733,23 @@ sessionInfo()
     ## loaded via a namespace (and not attached):
     ##   [1] backports_1.3.0             BiocFileCache_2.0.0        
     ##   [3] plyr_1.8.6                  splines_4.1.0              
-    ##   [5] BiocParallel_1.26.2         digest_0.6.28              
+    ##   [5] BiocParallel_1.26.2         digest_0.6.29              
     ##   [7] yulab.utils_0.0.4           htmltools_0.5.2            
-    ##   [9] fansi_0.5.0                 magrittr_2.0.1             
+    ##   [9] fansi_1.0.2                 magrittr_2.0.1             
     ##  [11] memoise_2.0.0               ScaledMatrix_1.0.0         
     ##  [13] Biostrings_2.60.2           matrixStats_0.61.0         
     ##  [15] prettyunits_1.1.1           colorspace_2.0-2           
     ##  [17] rappdirs_0.3.3              blob_1.2.2                 
     ##  [19] xfun_0.28                   crayon_1.4.2               
     ##  [21] RCurl_1.98-1.5              genefilter_1.74.1          
-    ##  [23] survival_3.2-13             glue_1.5.0                 
+    ##  [23] survival_3.2-13             glue_1.6.0                 
     ##  [25] gtable_0.3.0                zlibbioc_1.38.0            
     ##  [27] XVector_0.32.0              DelayedArray_0.18.0        
     ##  [29] car_3.0-12                  BiocSingular_1.8.1         
     ##  [31] Rgraphviz_2.36.0            abind_1.4-5                
     ##  [33] scales_1.1.1                futile.options_1.0.1       
     ##  [35] DBI_1.1.1                   rstatix_0.7.0              
-    ##  [37] Rcpp_1.0.7                  xtable_1.8-4               
+    ##  [37] Rcpp_1.0.8                  xtable_1.8-4               
     ##  [39] progress_1.2.2              gridGraphics_0.5-1         
     ##  [41] dqrng_0.3.0                 bit_4.0.4                  
     ##  [43] rsvd_1.0.5                  AnnotationForge_1.34.1     
@@ -1723,7 +1771,7 @@ sessionInfo()
     ##  [75] compiler_4.1.0              filelock_1.0.2             
     ##  [77] curl_4.3.2                  png_0.1-7                  
     ##  [79] ggsignif_0.6.3              tibble_3.1.6               
-    ##  [81] statmod_1.4.36              stringi_1.7.5              
+    ##  [81] statmod_1.4.36              stringi_1.7.6              
     ##  [83] highr_0.9                   lattice_0.20-45            
     ##  [85] vctrs_0.3.8                 pillar_1.6.4               
     ##  [87] lifecycle_1.0.1             cowplot_1.1.1              
@@ -1732,7 +1780,7 @@ sessionInfo()
     ##  [93] gridExtra_2.3               lambda.r_1.2.4             
     ##  [95] assertthat_0.2.1            SummarizedExperiment_1.22.0
     ##  [97] xlsxjars_0.6.1              rjson_0.2.20               
-    ##  [99] withr_2.4.2                 GenomicAlignments_1.28.0   
+    ##  [99] withr_2.4.3                 GenomicAlignments_1.28.0   
     ## [101] Rsamtools_2.8.0             GenomeInfoDbData_1.2.6     
     ## [103] hms_1.1.1                   beachmat_2.8.1             
     ## [105] tidyr_1.1.4                 rmarkdown_2.11             

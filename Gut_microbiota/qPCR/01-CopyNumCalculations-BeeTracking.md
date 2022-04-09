@@ -6,7 +6,7 @@ Joanito Liberti, University of Lausanne
 ## The following code processes raw qPCR data to calculate copies of the 16S rRNA gene per gut
 
 ``` r
-setwd("/Users/joanitoliberti/The-gut-microbiota-affects-the-social-network-of-honey-bees/Gut_microbiota/qPCR/")
+setwd("/Users/joanitoliberti/The-gut-microbiota-affects-the-social-network-of-honeybees/Gut_microbiota/qPCR/")
 
 # load raw data
 cts = read.csv("BeeTracking_guts_qPCR_rawdata.csv")
@@ -59,12 +59,22 @@ n <- merge(dt[dt$Target!="actin",],actin) # merge
 StdCurves <- read_excel("StdCurves_BeeTracking.xlsx", sheet=1) # export intercept, slope and threshold of detection values for each target
 StdCurves <- StdCurves[c(1:2),c(2:5)] # select only data needed
 StdCurves <- as.data.frame(StdCurves) # table from excel is loaded as 'tibble' -> needs to be fixed
-#StdCurves$LOD_copies <- NULL
 n <- merge(n, StdCurves) # add them to the dataframe based on Target which is in common
 
+# calculate CopyNums of actin
+n$actin_CopyNum <- (StdCurves[1,4]^(StdCurves[1,2] - n$actin_Ct))*400 # n = E^(intercept - Cq), *gut sample volume: we used  half of the gut homogenate, and DNA was eluted in 200 ul
+n$actin_CopyNum <- round(n$actin_CopyNum) # round it
+
 # calculate 16S rRNA gene copies
-n$CopyNum <- (n$Efficiency^(n$Intercept - n$Ct))*400 ## n = E^(intercept - Cq), *gut sample volume: we used  half of the gut homogenate, and DNA was eluted in 200 ul
+n$CopyNum <- (n$Efficiency^(n$Intercept - n$Ct))*400 # n = E^(intercept - Cq), *gut sample volume: we used  half of the gut homogenate, and DNA was eluted in 200 ul
 n$CopyNum <- round(n$CopyNum) # round it
+
+# calculate median actin value
+actin_mean <- round(mean(n$actin_CopyNum))
+actin_median <- round(median(n$actin_CopyNum))
+
+# calculate CopyNum_norm - normalized with median actin
+n$CopyNum_norm <- round((n$CopyNum / n$actin_CopyNum) * actin_median)
 
 n$Intercept <- NULL # get rid of extra columns
 n$Slope <- NULL
@@ -73,5 +83,5 @@ n$Threshold <- NULL
 n$`LOD #copy` <- NULL
 
 # EXPORT
-write.csv(n, file="BeeTracking_gut_qPCRdata.csv")
+write.csv(n, file="/Users/joanitoliberti/The-gut-microbiota-affects-the-social-network-of-honeybees/Gut_microbiota/qPCR/BeeTracking_gut_qPCRdata.csv")
 ```

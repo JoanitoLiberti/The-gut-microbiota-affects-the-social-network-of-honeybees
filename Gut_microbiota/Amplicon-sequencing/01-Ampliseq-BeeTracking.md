@@ -529,7 +529,6 @@ library(tidyverse)
 library(readxl)
 library(dada2)
 
-#ps <- readRDS("/Volumes/My\ Passport\ for\ Mac/MiSeqRun_Analyses/Bee_tracking/DADA2/ps_SINA_Hanine.rds")
 ps <- readRDS("/Volumes/My\ Passport\ for\ Mac/MiSeqRun_Analyses/Bee_tracking/DADA2/ps_dada2taxa_BeeTracking.rds")
 tax_tab <- read.table("/Volumes/My\ Passport\ for\ Mac/MiSeqRun_Analyses/Bee_tracking/DADA2/analysis/03_Taxonomy/TaxTable_ps_BeeTracking_Annotated.txt", header = T, sep = "\t") # read in the manually annotated taxonomy
 row.names(tax_tab) <- tax_tab[,1]
@@ -537,7 +536,7 @@ tax_tab[,1] <- NULL
 tax_table(ps) <- as.matrix(tax_tab)
 
 #Data frame containing sample information
-samdf = read.table("/Volumes/My Passport for Mac/MiSeqRun_Analyses/Bee_tracking/DADA2/GutMicrobiota_BeeTracking_metadata.txt", header = T, fill=TRUE,  sep="\t", na.strings=c(""," ","NA")) # fill=TRUE allows to read a table with missing entries
+samdf = read.table("/Volumes/My\ Passport\ for\ Mac/MiSeqRun_Analyses/Bee_tracking/DADA2/GutMicrobiota_BeeTracking_metadata.txt", header = T, fill=TRUE,  sep="\t", na.strings=c(""," ","NA")) # fill=TRUE allows to read a table with missing entries
 
 samdf$Sample_ID # Check the order is the same as the modified sample names in next lines
 samdf$Sample_ID<-c("S01","S02","S03","S04","S05","S06","S07","S08","S09","S10","S11",
@@ -819,9 +818,9 @@ mdf = sample_data(ps.noncontam.filt)
 
 mdf$Treatment <- factor(mdf$Treatment, levels = c("MD", "CL"))
 
-p1 <- ggplot(mdf, aes(x = Sample_ID, y= CopyNum)) + 
+p1 <- ggplot(mdf, aes(x = Sample_ID, y= CopyNum_norm)) + 
   geom_bar(stat="identity", color = "Black", fill = "indianred") +
-  ylab("Normalized 16S rRNA gene copies") +
+  ylab("Normalised 16S rRNA gene copies") +
   theme(axis.title.x = element_blank(), axis.text.x = element_blank()) +
   scale_y_log10(limits=c(1,1e10), breaks = c(1e1, 1e2, 1e3, 1e4, 1e5, 1e6, 1e7, 1e8, 1e9, 1e10)) + 
   coord_cartesian(ylim = c(1e5,1e10)) +
@@ -902,7 +901,7 @@ proportions = transform_sample_counts(ps.noncontam.filt, function(x) {x/sum(x)})
 
 #calculate ratios
 ratios = merge( tax_table(proportions),t(otu_table(proportions)), by="row.names")
-copynum = data.frame(sample_data(proportions)[,"CopyNum"])
+copynum = data.frame(sample_data(proportions)[,"CopyNum_norm"])
 
 row.names(ratios) <- ratios[,1]
 
@@ -953,8 +952,6 @@ p1 <- plot_ordination(
   ordination = bee_pcoa,
   axes=c(1,2),   # this selects which axes to plot from the ordination
   color = "Treatment",
-  #shape="Behaviour",
-  #label = "Sample", # not really needed but can be useful for exploration
   title = "PCoA of Bray-Curtis dissimilarities"
 )  +
  scale_color_manual(values = c("#00BFC4","#C77CFF")
@@ -1000,13 +997,13 @@ library(magrittr)
 library(ggpubr)
 library(scales)
 
-samdf1 <- subset(samdf, !is.na(HH))
+samdf1 <- subset(samdf, !is.na(HH_norm))
 samdf1$Treatment <- factor(samdf1$Treatment, levels= c("MD","CL"))
 
-give.n <- function(x){return(c(y = 1.25, label = length(x))) # experiment with the multiplier to find the perfect position
+give.n <- function(x){return(c(y = -0.65, label = length(x))) # experiment with the multiplier to find the perfect position
 }
 
-pq9 <- ggplot(samdf1, aes(x = Treatment, y = HH))+ 
+pq9 <- ggplot(samdf1, aes(x = Treatment, y = HH_norm))+ 
   geom_boxplot(outlier.shape = NA)+
   geom_beeswarm(aes(colour = Treatment),cex=3) +
   scale_x_discrete()+ 
@@ -1017,7 +1014,7 @@ pq9 <- ggplot(samdf1, aes(x = Treatment, y = HH))+
   facet_grid(.~Replicate)+
   stat_summary(fun.data = give.n, geom = "text") + # add number of observations
   scale_color_manual(values = c("#C77CFF","#00BFC4")) +
-  ylab("Head to head interactions") +
+  ylab("Normalised head-to-head interactions") +
   theme_bw()
 print(pq9)
 
@@ -1027,8 +1024,10 @@ ggsave(height=4,width=8,dpi=300, filename="HHbyTreatmentbyReplicate-BeeTracking.
 ## Stats
 
 ``` r
+samdf1$Subcolony <- factor(paste0(samdf1$Treatment, samdf1$Replicate))
+
 library(lmerTest)
-resul <- lmer(samdf1$HH ~ samdf1$Treatment  + (1|samdf1$Replicate))
+resul <- lmer(samdf1$HH_norm ~ samdf1$Treatment  + (1|samdf1$Replicate) + (1|samdf1$Subcolony))
 summary(resul)
 anova(resul)
 ```
@@ -1063,6 +1062,6 @@ sessionInfo()
     ## 
     ## loaded via a namespace (and not attached):
     ##  [1] compiler_4.1.0  magrittr_2.0.1  fastmap_1.1.0   tools_4.1.0    
-    ##  [5] htmltools_0.5.2 yaml_2.2.1      stringi_1.7.5   rmarkdown_2.11 
-    ##  [9] knitr_1.36      stringr_1.4.0   xfun_0.28       digest_0.6.28  
+    ##  [5] htmltools_0.5.2 yaml_2.2.1      stringi_1.7.6   rmarkdown_2.11 
+    ##  [9] knitr_1.36      stringr_1.4.0   xfun_0.28       digest_0.6.29  
     ## [13] rlang_0.4.12    evaluate_0.14

@@ -739,9 +739,9 @@ mdf = psmelt(ps.noncontam.filt)
 
 mdf$Treatment <- factor(mdf$Treatment, levels = c("MD", "CL_Bifi","CL_13", "CL"))
 
-p1 <- ggplot(mdf, aes(x = Sample, y= Copy_num)) + 
+p1 <- ggplot(mdf, aes(x = Sample, y= CopyNum_norm)) + 
   geom_bar(stat="identity", color = "Black", fill = "indianred") +
-  ylab("16S rRNA gene copies") +
+  ylab("Normalised 16S rRNA gene copies") +
   theme(axis.title.x = element_blank(), axis.text.x = element_blank()) +
   scale_y_log10(limits=c(1,1e10), breaks = c(1e1, 1e2, 1e3, 1e4, 1e5, 1e6, 1e7, 1e8, 1e9, 1e10)) + 
   coord_cartesian(ylim = c(1e5,1e10)) +
@@ -809,7 +809,7 @@ proportions = transform_sample_counts(ps.noncontam.filt, function(x) {x/sum(x)})
 
 #calculate ratios
 ratios = merge( tax_table(proportions),t(otu_table(proportions)), by="row.names")
-copynum = data.frame(sample_data(proportions)[,"Copy_num"])
+copynum = data.frame(sample_data(proportions)[,"CopyNum_norm"])
 
 row.names(ratios) <- ratios[,1]
 
@@ -817,7 +817,7 @@ ratios <- ratios[,11:length(ratios)]
 
 copies = data.frame(row.names = (row.names(ratios)))
 for (i in 1:ncol(ratios)){
-  numbers = ratios[,i]*copynum$Copy_num[i]  
+  numbers = ratios[,i]*copynum$CopyNum_norm[i]  
   copies = cbind(copies,numbers)
 }
 colnames(copies) = colnames(ratios)
@@ -853,7 +853,10 @@ p1 <- plot_ordination(
   axes=c(1,2),  
   color = "Treatment",
   title = "PCoA of Bray-Curtis dissimilarities")  +
-  geom_point(aes(color = Treatment), alpha = 1, size = 3) 
+  scale_color_manual(values = c("#00BFC4", "#7CAE00", "#F8766D", "#C77CFF")) +
+  theme_bw()+
+  geom_point(aes(color = Treatment), alpha = 1, size = 3)
+p1
 # ggsave(height=5,width=7,dpi=300, filename="Ordination_qPCRnormalized_RNAseqExp_PCoA_Bray.pdf", useDingbats=FALSE)
 ```
 
@@ -912,6 +915,6 @@ sessionInfo()
     ## 
     ## loaded via a namespace (and not attached):
     ##  [1] compiler_4.1.0  magrittr_2.0.1  fastmap_1.1.0   tools_4.1.0    
-    ##  [5] htmltools_0.5.2 yaml_2.2.1      stringi_1.7.5   rmarkdown_2.11 
-    ##  [9] knitr_1.36      stringr_1.4.0   xfun_0.28       digest_0.6.28  
+    ##  [5] htmltools_0.5.2 yaml_2.2.1      stringi_1.7.6   rmarkdown_2.11 
+    ##  [9] knitr_1.36      stringr_1.4.0   xfun_0.28       digest_0.6.29  
     ## [13] rlang_0.4.12    evaluate_0.14

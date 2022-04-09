@@ -6,7 +6,7 @@ Joanito Liberti and Lucie Kešnerová, University of Lausanne
 ## The following code processes raw qPCR data to calculate copies of the 16S rRNA gene per gut
 
 ``` r
-setwd("/Users/joanitoliberti/The-gut-microbiota-affects-the-social-network-of-honey-bees/Gut_microbiota/qPCR/")
+setwd("/Users/joanitoliberti/The-gut-microbiota-affects-the-social-network-of-honeybees/Gut_microbiota/qPCR/")
 
 # load data
 cts = read.csv("RNAseqExp_guts_qPCR_rawdata.csv")
@@ -82,9 +82,20 @@ StdCurves <- StdCurves[c(1:2),c(2:5)] # select only data needed
 StdCurves <- as.data.frame(StdCurves) 
 n <- merge(n, StdCurves) # add them to the dataframe based on Target which is in common
 
-# calculate CopyNums of 16S rRNA gene
-n$Copy_num <- (n$Efficiency^(n$Intercept - n$Ct))*100 ## n = E^(intercept - Cq), *100 ~ gut sample volume; Note: we took half of the gut homogenate, extracted DNA and eluted in 50 ul so we multiply by 50x2=100
-n$Copy_num <- round(n$Copy_num) # round it
+# calculate CopyNums of actin
+n$actin_CopyNum <- (StdCurves[1,4]^(StdCurves[1,2] - n$actin_Ct))*100 # n = E^(intercept - Cq), *gut sample volume: we used  half of the gut homogenate, and DNA was eluted in 50 ul
+n$actin_CopyNum <- round(n$actin_CopyNum) # round it
+
+# calculate 16S rRNA gene copies
+n$CopyNum <- (n$Efficiency^(n$Intercept - n$Ct))*100 # n = E^(intercept - Cq), *gut sample volume: we used  half of the gut homogenate, and DNA was eluted in 50 ul
+n$CopyNum <- round(n$CopyNum) # round it
+
+# calculate median actin value
+actin_mean <- round(mean(n$actin_CopyNum))
+actin_median <- round(median(n$actin_CopyNum))
+
+# calculate CopyNum_norm - normalized with median actin
+n$CopyNum_norm <- round((n$CopyNum / n$actin_CopyNum) * actin_median)
 
 n$Intercept <- NULL # get rid of extra columns
 n$Slope <- NULL
