@@ -10,4 +10,4 @@ Separate folders contain data, metadata and codes for each component of the stud
 
 # Reference publication
 
-Liberti J., Kay T., Quinn A., Kesner L., Frank E.T., Cabirol A., Richardson T.O., Engel P., Keller L. The gut microbiota affects the social network of honeybees. *Nature Ecology & Evolution* (2022). https://doi.org/10.1038/s41559-022-01840-w
+Liberti J., Kay T., Quinn A., Kesner L., Frank E.T., Cabirol A., Richardson T.O., Engel P., Keller L. The gut microbiota affects the social network of honeybees. *Nature Ecology & Evolution*  **6**, 1471–1479 (2022). https://doi.org/10.1038/s41559-022-01840-w
